@@ -1,0 +1,48 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"license": "ISC",
+	"author": "",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"start": "node dist/app.js",
+		"dev": "tsx watch --env-file=.env app.ts",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"engines": {
+		"node": ">=18.x"
+	},
+	"dependencies": {
+		"@hashgraph/sdk": "^2.61.0",
+		"@mysten/sui": "^1.26.1",
+		"@stellar/stellar-sdk": "^13.1.0",
+		"@stellar/typescript-wallet-sdk": "^1.9.0",
+		"@types/cors": "^2.8.17",
+		"@types/mongoose": "^5.11.96",
+		"bcryptjs": "^3.0.2",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.7",
+		"express": "^4.21.2",
+		"express-jwt": "^8.5.1",
+		"mongoose": "^8.13.2",
+		"morgan": "^1.10.0",
+		"typescript": "^5.8.3"
+	},
+	"private": true,
+	"devDependencies": {
+		"@types/bun": "latest",
+		"@types/express": "^5.0.1",
+		"@types/morgan": "^1.9.9",
+		"@types/node": "^22.13.14",
+		"@types/pg": "^8.11.13",
+		"eslint": "^9.23.0",
+		"install": "^0.13.0",
+		"npm": "^11.2.0",
+		"prettier": "^3.5.3",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.19.3"
+	}
+}
