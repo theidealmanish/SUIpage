@@ -1,0 +1,75 @@
+{
+	"manifest_version": 3,
+	"name": "SuperPage",
+	"description": "SuperPage is a payment extension that allows you to pay for your purchases with just one click.",
+	"version": "1.0.0",
+
+	"icons": {
+		"16": "images/d-page.png",
+		"32": "images/d-page.png",
+		"48": "images/d-page.png",
+		"128": "images/d-page.png"
+	},
+	"declarative_net_request": {
+		"rule_resources": [
+			{
+				"id": "ruleset_1",
+				"enabled": true,
+				"path": "CSP.json"
+			}
+		]
+	},
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "images/d-page.png",
+			"32": "images/d-page.png",
+			"48": "images/d-page.png",
+			"128": "images/d-page.png"
+		}
+	},
+
+	"permissions": [
+		"storage",
+		"tabs",
+		"activeTab",
+		"scripting",
+		"declarativeNetRequest"
+	],
+
+	"host_permissions": [
+		"https://www.youtube.com/*",
+		"https://github.com/*",
+		"https://x.com/*",
+		"https://superpa.ge/*",
+		"https://www.superpa.ge/*"
+	],
+
+	"background": {
+		"service_worker": "serviceWorker.js"
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+			"js": ["youtube.js"],
+			"run_at": "document_idle"
+		},
+		{
+			"matches": ["https://github.com/*", "https://www.github.com/*"],
+			"js": ["github.js"],
+			"run_at": "document_idle"
+		},
+		{
+			"matches": ["https://x.com/*", "https://www.x.com/*"],
+			"js": ["x.js"],
+			"run_at": "document_idle"
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": ["solanaBridge.js", "ethereumBridge.js", "suiBridge.js"],
+			"matches": ["<all_urls>"]
+		}
+	]
+}
